@@ -1,10 +1,12 @@
 import { Router } from 'express'
+
+import { createCategory } from './app/usecases/categories/createCategory'
 import { listCategories } from './app/usecases/categories/listCategories'
 
 export const router = Router()
 
 router.get('/categories', listCategories)
-router.post('/categories', () => {})
+router.post('/categories', createCategory)
 
 router.get('/products', () => {})
 router.post('/products', () => {})
