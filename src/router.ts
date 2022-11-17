@@ -7,6 +7,10 @@ import { listCategories } from './app/usecases/categories/listCategories'
 import { listProducts } from './app/usecases/products/listProducts'
 import { createProduct } from './app/usecases/products/createProduct'
 import { listProductsByCategory } from './app/usecases/categories/listProductsByCategory'
+import { listOrders } from './app/usecases/orders/listOrders'
+import { createOrder } from './app/usecases/orders/createOrder'
+import { changeOrderStatus } from './app/usecases/orders/changeOrderStatus'
+import { cancelOrder } from './app/usecases/orders/cancelOrder'
 
 export const router = Router()
 
@@ -29,7 +33,7 @@ router.post('/products', upload.single('image'), createProduct)
 
 router.get('/categories/:categoryId/products', listProductsByCategory)
 
-router.get('/orders', () => {})
-router.post('/orders', () => {})
-router.patch('/orders/:orderId', () => {})
-router.delete('/orders/:orderId', () => {})
+router.get('/orders', listOrders)
+router.post('/orders', createOrder)
+router.patch('/orders/:orderId', changeOrderStatus)
+router.delete('/orders/:orderId', cancelOrder)
